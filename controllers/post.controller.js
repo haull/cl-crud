@@ -42,5 +42,19 @@ module.exports = {
         return res.render('post/edit', {
             postById,
         });
-    }
+    },
+    edit: async(req, res) => {
+      await Post.update({
+          title: req.body.title,
+          content: req.body.content,
+      },
+      {
+        where: { 
+          id: req.body.id,
+        }
+      });
+
+      return res.redirect('/posts');
+  },
+
 }

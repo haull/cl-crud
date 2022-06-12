@@ -11,5 +11,6 @@ router.get('/posts/create', postController.create);
 router.get('/posts/delete/:id', postController.delete);
 router.post('/posts/store', postController.store);
 router.get('/posts/edit/:id', postController.change);
+router.post('/posts/edit', postController.edit);
 
 module.exports = router;
