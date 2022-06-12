@@ -1,47 +1,35 @@
-<%- include('../includes/header'); %> 
- 
-  <div class="container"> 
-    <h2> 
-      All Post 
-    </h2> 
-    <a href="/posts/create"> 
-      <button class="btn btn-primary"> 
-        Create Post 
-      </button> 
-    </a> 
-    <!-- Tes Komen Aziz -->
-    <table class="table"> 
-      <thead> 
-        <tr> 
-          <th>#</th> 
-          <th>Title</th> 
-          <th>Content</th> 
-          <th>Action</th> 
-        </tr> 
-      </thead> 
-      <tbody> 
-        <% posts.forEach(post => { %> 
-          <tr> 
-            <td><%= post.id %></td> 
-            <td><%= post.title %></td> 
-            <td><%= post.content %></td> 
-            <td> 
-              <a href="/posts/<%= post.id %>/edit"> 
-                <button class="btn btn-primary"> 
-                  Edit 
-                </button> 
-              </a> 
-              <a href="/posts/<%= post.id %>/delete"> 
-                <button class="btn btn-danger"> 
-                  Delete 
-                </button> 
-              </a> 
-            </td> 
-          </tr> 
-        <% }); %> 
-      </tbody> 
-    </t 
-    </table> 
-  </div> 
- 
-  <%- include('../includes/footer'); %>
+<%- include('../includes/header'); %>
+
+<div class="container">
+  <h2>All Post</h2>
+  <a href="/posts/create" class="btn btn-primary mt-3">Create Post</a>
+  <table class="table mt-4">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Title</th>
+        <th>Content</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% posts.forEach(post => { %>
+      <tr>
+        <td><%= post.id %></td>
+        <td><%= post.title %></td>
+        <td><%= post.content %></td>
+        <td>
+          <a href="/posts/<%= post.id %>/edit">
+            <button class="btn btn-primary">Edit</button>
+          </a>
+          <a href="/posts/delete/<%= post.id %>">
+            <button class="btn btn-danger">Delete</button>
+          </a>
+        </td>
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</div>
+
+<%- include('../includes/footer'); %>

@@ -7,6 +7,7 @@ const router = require('express').Router();
 router.get('/', indexController.index);
 router.get('/posts', postController.index);
 router.get('/posts/create', postController.create);
+router.get('/posts/delete/:id', postController.delete);
 router.post('/posts/store', postController.store);
 
 module.exports = router;
