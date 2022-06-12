@@ -30,6 +30,10 @@ module.exports = {
       },
     });
 
-    return res.redirect('/posts');
-  },
-};
+        return res.redirect('/posts');
+      },
+
+      edit: async(req,res) => {
+        return res.render('post/edit');
+      }
+}
