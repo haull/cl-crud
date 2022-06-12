@@ -1,22 +1,22 @@
 <%- include('../includes/header'); %>
 
-  <div class="container">
-    <h2>
-      Edit
-    </h2>
+    <div class="container">
+        <h2>
+            Edit
+        </h2>
 
-    <form action="/posts/change" method="POST">
-        <div class="mb-3">
-          <label for="title" class="form-label">Title</label>
-          <input type="text" class="form-control" id="title" name="title">
-        </div>
-        <div class="mb-3">
-          <label for="content" class="form-label">Content</label>
-          <input type="text" class="form-control" id="content" name="content">
-        </div>
-        
-        <button type="edit" class="btn btn-primary">Edit</button>
-      </form>
-  </div>
+        <form action="/posts/edit" method="POST">
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" value="<%= postById.title %>" class="form-control" id="title" name="title">
+            </div>
+            <div class="mb-3">
+                <label for="content" class="form-label">Content</label>
+                <input type="text" value="<%= postById.content %>" class="form-control" id="content" name="content">
+            </div>
 
-  <%- include('../includes/footer'); %>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+
+    <%- include('../includes/footer'); %>

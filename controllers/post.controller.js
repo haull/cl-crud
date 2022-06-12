@@ -1,39 +1,46 @@
 const Post = require('../models/Post');
 
 module.exports = {
-  index: async (req, res) => {
-    const posts = await Post.findAll();
+    index: async(req, res) => {
+        const posts = await Post.findAll();
 
-    return res.render('post/index', {
-      posts,
-    });
-  },
+        return res.render('post/index', {
+            posts,
+        });
+    },
 
-  create: async (req, res) => {
-    return res.render('post/create');
-  },
+    create: async(req, res) => {
+        return res.render('post/create');
+    },
 
-  store: async (req, res) => {
-    await Post.create({
-      title: req.body.title,
-      content: req.body.content,
-    });
-
-    return res.redirect('/posts');
-  },
-
-  delete: async (req, res) => {
-    const id = req.params.id;
-    await Post.destroy({
-      where: {
-        id: id,
-      },
-    });
+    store: async(req, res) => {
+        await Post.create({
+            title: req.body.title,
+            content: req.body.content,
+        });
 
         return res.redirect('/posts');
-      },
+    },
 
-      edit: async(req,res) => {
-        return res.render('post/edit');
-      }
+    delete: async(req, res) => {
+        const id = req.params.id;
+        await Post.destroy({
+            where: {
+                id: id,
+            },
+        });
+
+        return res.redirect('/posts');
+    },
+
+    change: async(req, res) => {
+        const id = req.params.id;
+        const postById =
+            await Post.findOne({
+                where: { id: id }
+            })
+        return res.render('post/edit', {
+            postById,
+        });
+    }
 }
